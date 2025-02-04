@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental</title>
+  <!-- Include Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav id="home" class="bg-sky-950 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold">Car Rental</h1>
+
+      <!-- Menu and Filters -->
+      <div class="flex items-center gap-4">
+        <!-- Navigation Links -->
+        <!-- <ul class="flex space-x-4">
+          <li><a href="#" class="hover:text-blue-300 transition duration-300">Home</a></li>
+          <li><a href="#" class="hover:text-blue-300 transition duration-300">Cars</a></li>
+          <li><a href="#" class="hover:text-blue-300 transition duration-300">Contact</a></li>
+        </ul> -->
+
+        <!-- Sort Dropdown -->
+        <div class="flex items-center gap-2">
+          <label for="sortSelect" class="font-bold text-sm">Sort:</label>
+          <select id="sortSelect" class="w-36 px-2 py-1 border border-gray-300 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="name_asc">Name A-Z</option>
+            <option value="price_asc">Harga Terendah</option>
+            <option value="price_desc">Harga Tertinggi</option>
+          </select>
+        </div>
+
+        <!-- Filter Dropdown -->
+        <div class="flex items-center gap-2">
+          <label for="brandFilter" class="font-bold text-sm">Filter:</label>
+          <select id="brandFilter" class="w-36 px-2 py-1 border border-gray-300 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="all">All Brands</option>
+            <option value="Honda">Honda</option>
+            <option value="Mitsubishi">Mitsubishi</option>
+            <option value="Toyota">Toyota</option>
+          </select>
+        </div>
+
+        <!-- Rating Dropdown -->
+        <div class="flex items-center gap-2">
+          <label for="ratingFilter" class="font-bold text-sm">Years:</label>
+          <select id="ratingFilter" class="w-36 px-2 py-1 border border-gray-300 rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="0">Latest</option>
+            <option value="1">Newest</option>
+          </select>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex items-center gap-2">
+          <input type="text" id="searchInput" placeholder="Cari produk..." class="px-3 py-1 border border-gray-300 rounded-md w-48 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <button id="searchButton" class="bg-sky-900 hover:bg-sky-700 text-white font-bold py-1 px-3 rounded-md transition duration-300">
+            Cari
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gray-900 text-white py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Find Your Perfect Car</h2>
+      <p class="text-lg mb-8">Rent a car with ease and enjoy your journey.</p>
+      <button class="bg-sky-950 hover:bg-sky-900 text-white font-bold py-3 px-6 rounded-full transition duration-300">
+        Get Started
+      </button>
+    </div>
+  </section>
+
+  <!-- Car Listings -->
+  <section id="cars" class="py-12">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-8">Available Cars</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Car Card 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Avanza.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Avanza</h3>
+            <p class="text-gray-600 mb-4">Compact sedan perfect for city driving.</p>
+            <p class="text-blue-600 font-bold">$50/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Innova.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Innova</h3>
+            <p class="text-gray-600 mb-4">Fuel-efficient and reliable for long trips.</p>
+            <p class="text-blue-600 font-bold">$55/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Pajero.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Pajero</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Hilux.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Hilux</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Brio.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Brio</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 6 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Alphard.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Alphard</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+        <!-- Car Card 7 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Triton.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Triton</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+          </div>
+          
+        <!-- Car Card 8 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Fortuner.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Fortuner</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+          </div>
+
+        <!-- Car Card 9 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Xpander.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Xpander</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+          </div>
+
+          <!-- Car Card 10 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="Hiace.jpeg" alt="Car Image" class="w-full h-50 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Hiace</h3>
+            <p class="text-gray-600 mb-4">Powerful sports car for an exciting ride.</p>
+            <p class="text-blue-600 font-bold">$120/day</p>
+            <button class="mt-4 bg-sky-900 hover:bg-sky-950 text-white font-bold py-2 px-4 rounded-full w-full">
+              Rent Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2023 Car Rental. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Sidebar Button -->
+  <span class="absolute text-white text-4xl top-5 right-4 cursor-pointer" onclick="openSidebar()">
+    <button id="Button" class="hover:bg-sky-900 py-0 px-2 rounded-md">=</button>
+
+    <!-- Sidebar -->
+    <div class="sidebar fixed top-0 bottom-0 right-[-300px] p-2 w-[300px] overflow-y-auto text-center bg-sky-900 transition-all duration-300">
+      <div class="text-white text-xl">
+        <div class="p-2.5 mt-1 flex items-center">
+            <i class="px-2 py-1 bg-sky-900 rounded-md">+</i>
+            <h1 class="font-bold text-white text-[15px]">Menu</h1>
+            <i class="ml-auto cursor-pointer" onclick="openSidebar()"></i>
+        </div>
+        <hr class="my-2 text-gray-950">
+    </div>
+
+    <a href="#home" class="block">
+      <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-sky-800 text-gray-950">
+          <div class="flex justify-between w-full items-center">
+              <span class="text-[15px] ml-4 text-white">Home</span>
+              <span class="text-sm transition-transform transform"></span>
+          </div>
+      </div>
+  </a>
+
+  <a href="#cars" class="block">
+    <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-sky-800 text-gray-950">
+        <div class="flex justify-between w-full items-center">
+            <span class="text-[15px] ml-4 text-white">Cars</span>
+            <span class="text-sm transition-transform transform"></span>
+        </div>
+    </div>
+</a>
+
+<a href="#contact" class="block">
+  <div class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-sky-800 text-gray-950">
+      <div class="flex justify-between w-full items-center">
+          <span class="text-[15px] ml-4 text-white">Contact</span>
+          <span class="text-sm transition-transform transform"></span>
+      </div>
+  </div>
+</a>
+
+    <script type="text/javascript"> 
+      function openSidebar() {
+          document.querySelector('.sidebar').classList.toggle('right-[-300px]');
+          document.querySelector('.sidebar').classList.toggle('right-0');
+      }
+  </script>
+
+
+<!-- Notification Popup -->
+<div id="popup-notification" class="fixed top-4 left-1/2 transform -translate-x-1/2 bg-white text-sky-950 px-4 py-2 rounded-md shadow-md z-50 hidden max-w-xs">
+  <div class="flex justify-between items-center">
+    <span class="text-sm">Contact tidak ada!</span>
+    <button id="close-popup" class="ml-2 text-black hover:text-gray-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- JavaScript for Popup -->
+<script>
+  // Fungsi untuk menampilkan notifikasi
+  const contactLink = document.querySelector('a[href="#contact"]');
+  const popupNotification = document.getElementById('popup-notification');
+  const closePopupButton = document.getElementById('close-popup');
+
+  contactLink.addEventListener('click', (e) => {
+    e.preventDefault(); // Mencegah scroll ke #contact
+    popupNotification.classList.remove('hidden'); // Tampilkan notifikasi
+  });
+
+  // Fungsi untuk menutup notifikasi
+  closePopupButton.addEventListener('click', () => {
+    popupNotification.classList.add('hidden'); // Sembunyikan notifikasi
+  });
+</script>
+
+
+  <script src="homeApp.js"></script>
+</body>
+</html>
